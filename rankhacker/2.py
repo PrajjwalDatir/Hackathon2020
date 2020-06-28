@@ -1,40 +1,29 @@
-import sys
-	
-AP = list(sys.stdin.readline().split())
-start = int(AP[0])
-end = int(AP[1])
-
-prime = []
-for val in range(start, end + 1): 
-	if val > 1:
-		if val == 2:
-			prime.append(val)
-		for n in range(2, val//2 + 2):
-			if (val % n) == 0:
-				break
-			else:
-				if n == val//2 + 1:
-					prime.append(val)
-add = [prime[0]]
-#print(len(prime))
-for i in range(1, len(prime)):
-	add.append( prime[i] + add[i-1] )
-
-# print(prime)
-# print(add)
-
-cnt = 0
-for val in add:
-	val = int(val)
-	if val > 1:
-		if val == 2:
-			cnt += 1
-		for n in range(2, val//2 + 2):
-			if (val%n) == 0:
-				break
-			else:
-				if n == (val//2 + 1):
-					cnt += 1
-
-
-print(cnt)
+from sys import stdin
+N = int(stdin.readline())
+for _ in range(N):
+	mylist = list(stdin.readline().split())
+	# odd pos words
+	# even pos numbers
+	# print(mylist)
+	# print(len(mylist))
+	newlist = []
+	numlist = []
+	for i in range(len(mylist)):
+		if not i%2:
+			newlist.append(mylist[i].lower())
+		else:
+			numlist.append(int(mylist[i]))
+	newlist.sort()
+	numlist.sort()
+	j = 0
+	k = 0
+	for i in range(len(mylist)):
+		if not i%2:
+			print(newlist[j].lower(), end=" ")
+			j += 1
+		else:
+			print(numlist[k], end=" ")
+			k += 1
+	# print(newlist)
+	# print(numlist)
+	print()
