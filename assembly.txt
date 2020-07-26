@@ -1,0 +1,3 @@
+When compiling your code with g++ you can use the flag "-S".
+
+Example: File: "helloworld.cpp" Then type "g++ -S helloworld.cpp" in your terminal or cmd This will generate an assembly file named "helloworld.s"
